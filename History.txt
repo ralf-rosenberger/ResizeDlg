@@ -1,2 +1,2 @@
-1.0 written by Ralf Rosenberger Montag, 10. November 2025 - Diestag, 11. November 2025
+1.0 written by Ralf Rosenberger Montag, 10. November 2025 - Dienstag, 11. November 2025
 - Initial version created.

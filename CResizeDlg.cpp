@@ -185,25 +185,30 @@ void CResizeDlg::AddVerElement(UINT nID, bool bMove, bool bCenter)
 }
 BOOL CResizeDlg::OnEraseBkgnd(CDC* pDC)
 {
-	if (CDialogEx::OnEraseBkgnd(pDC) && !(GetStyle() & WS_MAXIMIZE))
+	if (CDialogEx::OnEraseBkgnd(pDC))
 	{
 		//draw size grip
 		CRect rc;
 		static CRect rcOld;
-
+		
 		GetClientRect(&rc);
 
-		if (rc != rcOld)
-		{
+		if (rcOld != rc)
+		{ 
 			InvalidateRect(&rcOld, TRUE);
-			rcOld = rc;
+			rcOld = rc;	
 		}
 
-		int size = GetSystemMetrics(SM_CXVSCROLL);
-		rc.left = rc.right - size;
-		rc.top = rc.bottom - size;
-		pDC->DrawFrameControl(&rc, DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
+		if (!(GetStyle() & WS_MAXIMIZE))
+		{
+			int size = GetSystemMetrics(SM_CXVSCROLL);
 
+			rc.left = rc.right - size;
+			rc.top = rc.bottom - size;
+
+			pDC->DrawFrameControl(&rc, DFC_SCROLL, DFCS_SCROLLSIZEGRIP);
+			
+		}
 		return TRUE;
 	}
 	else

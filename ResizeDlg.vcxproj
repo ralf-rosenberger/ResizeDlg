@@ -210,6 +210,9 @@
     <Image Include="res\SizeDlgApp.ico" />
     <Image Include="res\Smiley.bmp" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="History.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
